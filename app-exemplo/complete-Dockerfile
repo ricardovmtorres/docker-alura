@@ -1,0 +1,9 @@
+# DOCKERFILE DOCUMENTATION REFERENCE: https://docs.docker.com/engine/reference/builder/
+FROM node:14
+WORKDIR /app-node
+ARG PORT_BUILD=6000/tcp
+ENV PORT=$PORT_BUILD
+EXPOSE $PORT_BUILD
+COPY . .
+RUN npm install
+ENTRYPOINT npm start
